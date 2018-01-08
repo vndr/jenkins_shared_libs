@@ -5,7 +5,7 @@ pythonPipeline(pipelineDefinition['pipelineType']) {
     // Create a globally accessible variable that makes
     // the YAML pipeline definition available to all scripts
     pd = pipelineDefinition
-    println("This is pipelineDefiniton inside pythonPipeline: " + pd)
+    println("This is pipelineDefinition inside pythonPipeline: " + pd)
 }
 
 def executePipeline() {
