@@ -13,9 +13,8 @@ def execute() {
             echo 'Loading pipeline definition'
             Yaml parser = new Yaml()
             Map pipelineDefinition = parser.load(new File(pwd() + '/pipeline.yaml').text)
-            echo pipelineDefinition
 //            List pipelineDefinition = parser.load((new File(pwd) + '/pipeline.yaml').text)
-
+            System.out.println(pipelineDefinition);
         }
 
         switch(pipelineDefinition.pipelineType) {
