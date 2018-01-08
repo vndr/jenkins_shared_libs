@@ -9,6 +9,8 @@ pythonPipeline(pipelineDefinition) {
 
 def executePipeline() {
     node {
+
+/***
         if (runTests) {
             stage('Run Tests') {
                 sh pd.testCommand
@@ -20,6 +22,15 @@ def executePipeline() {
                 sh "path/to/a/deploy/bash/script.sh ${pd.deploymentEnvironment}"
             }
         }
+ **/
+        stage 'staging'
+        def first = someFunc('this is first stage!!!!!')
+        def second = someFunc('this is second stage !!!!')
+    }
+
+    def someFunc(String skuskatextu) {
+        echo skuskatextu
+        skuskatextu
     }
 }
 
