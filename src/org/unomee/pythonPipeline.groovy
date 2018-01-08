@@ -1,5 +1,6 @@
 #!/usr/bin/groovy
 package org.unomee;
+import org.unomee.*;
 
 pythonPipeline(pipelineDefinition['pipelineType']) {
     // Create a globally accessible variable that makes
