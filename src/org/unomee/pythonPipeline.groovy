@@ -14,7 +14,7 @@ pythonPipeline(pipelineDefinition['pipelineType']) {
 def executePipeline(pipelineDefinition) {
     println("This is pipelineDefinition inside pythonPipeline: " + pipelineDefinition)
 
-/***
+
     node {
 
         if (pipelineDefinition['runTests']) {
@@ -32,7 +32,6 @@ def executePipeline(pipelineDefinition) {
             }
         }
     }
- ***/
 }
 
 return this
