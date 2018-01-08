@@ -6,15 +6,16 @@ import org.yaml.snakeyaml.Yaml
 
 def execute() {
 
+    def pipelineDefinition = [:]
     node {
 
         stage('Initialize') {
             checkout scm
             echo 'Loading pipeline definition'
             Yaml parser = new Yaml()
-            Map pipelineDefinition = parser.load(new File(pwd() + '/pipeline.yaml').text)
+            pipelineDefinition = parser.load(new File(pwd() + '/pipeline.yaml').text)
 //            List pipelineDefinition = parser.load((new File(pwd) + '/pipeline.yaml').text)
-            System.out.println('blablablablabla');
+            println("This is array for pipelineDefiniton: " + pipelineDefinition)
         }
 
         switch(pipelineDefinition.pipelineType) {
