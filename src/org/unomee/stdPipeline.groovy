@@ -1,5 +1,6 @@
 #!/bin/groovy
 package org.unomee;
+import org.yaml.snakeyaml.Yaml
 
 def execute() {
 
@@ -9,7 +10,8 @@ def execute() {
             checkout scm
             echo 'Loading pipeline definition'
             Yaml parser = new Yaml()
-            Map pipelineDefinition = parser.load(new File(pwd() + '/pipeline.yml').text)
+//            Map pipelineDefinition = parser.load(new File(pwd() + '/pipeline.yml').text)
+            List pipelineDefinition = parser.load(("pipeline.yaml" as File).text)
         }
 
         switch(pipelineDefinition.pipelineType) {
