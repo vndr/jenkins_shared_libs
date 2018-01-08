@@ -12,8 +12,8 @@ def execute() {
             checkout scm
             echo 'Loading pipeline definition'
             Yaml parser = new Yaml()
-//            Map pipelineDefinition = parser.load(new File(pwd() + '/pipeline.yml').text)
-            List pipelineDefinition = parser.load((new File(pwd) + '/pipeline.yaml').text)
+            Map pipelineDefinition = parser.load(new File(pwd() + '/pipeline.yml').text)
+//            List pipelineDefinition = parser.load((new File(pwd) + '/pipeline.yaml').text)
 
         }
 
