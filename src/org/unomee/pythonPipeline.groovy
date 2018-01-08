@@ -7,6 +7,12 @@ pythonPipeline(pipelineDefinition) {
     pd = pipelineDefinition
 }
 
+def someFunc(String skuskatextu) {
+    echo skuskatextu
+    skuskatextu
+}
+
+
 def executePipeline() {
     node {
 
@@ -26,11 +32,6 @@ def executePipeline() {
         stage 'staging'
         def first = someFunc('this is first stage!!!!!')
         def second = someFunc('this is second stage !!!!')
-    }
-
-    def someFunc(String skuskatextu) {
-        echo skuskatextu
-        skuskatextu
     }
 }
 
