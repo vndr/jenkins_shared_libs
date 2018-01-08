@@ -1,7 +1,7 @@
 #!/bin/groovy
+package org.unomee;
 @Grab('org.yaml:snakeyaml:1.17')
 
-package org.unomee;
 import org.yaml.snakeyaml.Yaml
 
 def execute() {
