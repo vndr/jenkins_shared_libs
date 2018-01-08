@@ -23,12 +23,10 @@ def execute() {
         switch(pipelineDefinition['pipelineType']) {
             case 'python':
                 // Instantiate and execute a Python pipeline
-                println("I am pythonPipeline cos my pipelineType is:" + pipelineDefinition['pipelineType'])
-                println("This is array for pipelineDefinition: " + pipelineDefinition)
                 new pythonPipeline().executePipeline(pipelineDefinition)
-//            case 'nodejs':
+            case 'nodejs':
                 // Instantiate and execute a NodeJS pipeline
-                // new nodeJSPipeline(pipelineDefinition).executePipeline()
+                new nodeJSPipeline().executePipeline(pipelineDefinition)
         }
 
     }
