@@ -21,7 +21,8 @@ def execute() {
         switch(pipelineDefinition['pipelineType']) {
             case 'python':
                 // Instantiate and execute a Python pipeline
-                new pythonPipeline(pipelineDefinition).executePipeline()
+//                new pythonPipeline(pipelineDefinition).executePipeline()
+                println("I am pythonPipeline cos my pipelineType is:" + pipelineDefinition['pipelineType'])
 //            case 'nodejs':
                 // Instantiate and execute a NodeJS pipeline
                 // new nodeJSPipeline(pipelineDefinition).executePipeline()
