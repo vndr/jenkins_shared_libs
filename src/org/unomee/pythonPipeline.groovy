@@ -12,7 +12,7 @@ pythonPipeline(pipelineDefinition['pipelineType']) {
 ****/
 
 def executePipeline() {
-    println("This is pipelineDefinition inside pythonPipeline: " + pd)
+    println("This is pipelineDefinition inside pythonPipeline: ")
 
 /***
     node {
