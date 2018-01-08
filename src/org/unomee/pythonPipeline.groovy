@@ -11,8 +11,8 @@ pythonPipeline(pipelineDefinition['pipelineType']) {
 }
 ****/
 
-def executePipeline() {
-    println("This is pipelineDefinition inside pythonPipeline: ")
+def executePipeline(pipelineDefinition) {
+    println("This is pipelineDefinition inside pythonPipeline: " + pipelineDefinition)
 
 /***
     node {
