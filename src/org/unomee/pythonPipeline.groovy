@@ -1,12 +1,14 @@
 #!/usr/bin/groovy
 package org.unomee;
 
+/***
 pythonPipeline(pipelineDefinition) {
     // Create a globally accessible variable that makes
     // the YAML pipeline definition available to all scripts
     pd = pipelineDefinition
     println("This is pipelineDefiniton inside pythonPipeline: " + pd)
 }
+***/
 
 def executePipeline() {
     node {
