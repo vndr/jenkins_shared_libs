@@ -2,14 +2,19 @@
 package org.unomee;
 import org.unomee.*;
 
+
+/*****
 pythonPipeline(pipelineDefinition['pipelineType']) {
     // Create a globally accessible variable that makes
     // the YAML pipeline definition available to all scripts
     pd = pipelineDefinition
-    println("This is pipelineDefinition inside pythonPipeline: " + pd)
 }
+****/
 
 def executePipeline() {
+    println("This is pipelineDefinition inside pythonPipeline: " + pd)
+
+/***
     node {
 
         if (pipelineDefinition['runTests']) {
@@ -27,6 +32,7 @@ def executePipeline() {
             }
         }
     }
+ ***/
 }
 
 return this
