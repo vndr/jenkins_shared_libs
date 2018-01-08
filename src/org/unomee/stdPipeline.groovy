@@ -1,4 +1,3 @@
-# /src/org/unomee/stdPipeline.groovy
 #!/bin/groovy
 package org.unomee;
 
