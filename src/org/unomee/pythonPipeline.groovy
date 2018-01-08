@@ -20,14 +20,14 @@ def executePipeline(pipelineDefinition) {
         if (pipelineDefinition['runTests']) {
             stage('Run Tests') {
 //                sh pd.testCommand
-                printl("test is running")
+                println("test is running")
             }
         }
 
         if (pipelineDefinition['deployUponTestSuccess']) {
             stage('Deploy') {
 //                sh "path/to/a/deploy/bash/script.sh ${pd.deploymentEnvironment}"
-                printl("App is deployed")
+                println("App is deployed")
 
             }
         }
