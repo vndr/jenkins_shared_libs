@@ -15,10 +15,10 @@ def execute() {
             Yaml parser = new Yaml()
             pipelineDefinition = parser.load(new File(pwd() + '/pipeline.yaml').text)
 //            List pipelineDefinition = parser.load((new File(pwd) + '/pipeline.yaml').text)
-            println("This is array for pipelineDefiniton: " + pipelineDefinition)
+            println("This is array for pipelineDefiniton.pipelineType: " + pipelineDefinition['pipelineType'])
         }
 
-        switch(pipelineDefinition.pipelineType) {
+        switch(pipelineDefinition['pipelineType']) {
             case 'python':
                 // Instantiate and execute a Python pipeline
                 new pythonPipeline(pipelineDefinition).executePipeline()
