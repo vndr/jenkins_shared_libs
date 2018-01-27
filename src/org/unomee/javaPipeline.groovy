@@ -20,6 +20,7 @@ def executePipeline(pipelineDefinition) {
 
         if (pipelineDefinition['runTests']) {
             stage('Run Tests') {
+                sh "pwd"
                 sh "./gradlew run"
                 println("Java test is running")
             }
