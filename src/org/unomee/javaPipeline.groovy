@@ -18,10 +18,14 @@ def executePipeline(pipelineDefinition) {
     node {
         checkout scm
 
+        stage('Build') {
+            sh "./gradlew build"
+        }
+
         if (pipelineDefinition['runTests']) {
             stage('Run Tests') {
                 sh "pwd"
-                sh "./gradlew run"
+                sh "./gradlew -x check"
                 println("Java test is running")
             }
         }
@@ -29,6 +33,7 @@ def executePipeline(pipelineDefinition) {
         if (pipelineDefinition['deployUponTestSuccess']) {
             stage('Deploy') {
 //                sh "path/to/a/deploy/bash/script.sh ${pd.deploymentEnvironment}"
+                sh "./gradlew run"
                 println("Java App is deployed")
 
             }
