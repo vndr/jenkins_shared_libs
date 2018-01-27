@@ -16,6 +16,7 @@ def executePipeline(pipelineDefinition) {
 
 
     node {
+        checkout scm
 
         if (pipelineDefinition['runTests']) {
             stage('Run Tests') {
