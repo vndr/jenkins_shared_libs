@@ -16,9 +16,11 @@ def executePipeline(pipelineDefinition) {
 
 
     node {
+        checkout scm
 
         if (pipelineDefinition['runTests']) {
             stage('Run Tests') {
+                sh "pwd"
                 sh "./gradlew run"
                 println("Java test is running")
             }
