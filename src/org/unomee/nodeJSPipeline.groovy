@@ -13,22 +13,47 @@ import org.unomee.*;
 
 def executePipeline(pipelineDefinition) {
     println("This is pipelineDefinition inside nodeJSPipeline: " + pipelineDefinition)
-
-
     node {
+        stage('Checkout scm') {
+            checkout scm
+        }
+
+        stage('Build') {
+            try {
+                sh "npm install"
+            } catch (e) {
+                currentBuild.result = 'FAILURE'
+            }
+        }
 
         if (pipelineDefinition['runTests']) {
-            stage('Run Tests') {
-//                sh pd.testCommand
-                println("NodeJS test is running")
+            stage(' Unit Tests') {
+                try {
+                    sh "${pipelineDefinition.testCommand}"
+                    sh "npm run test-with-coverage"
+
+                } catch (e) {
+                    currentBuild.result = 'FAILURE'
+                } finally {
+                    publishHTML([
+                            allowMissing: false,
+                            alwaysLinkToLastBuild: false,
+                            keepAll: true,
+                            reportDir: 'coverage',
+                            reportFiles: 'index.html',
+                            reportName: 'HTML Report',
+                            reportTitles: 'RCov Report'])
+                }
             }
         }
 
         if (pipelineDefinition['deployUponTestSuccess']) {
-            stage('Deploy') {
-//                sh "path/to/a/deploy/bash/script.sh ${pd.deploymentEnvironment}"
-                println("NodeJS App is deployed")
-
+            stage('Publish') {
+                try {
+                    sh "npm publish"
+                } catch (e) {
+                    currentBuild.result = 'FAILURE'
+                }
             }
         }
     }

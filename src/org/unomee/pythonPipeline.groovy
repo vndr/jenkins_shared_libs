@@ -19,7 +19,7 @@ def executePipeline(pipelineDefinition) {
 
         if (pipelineDefinition['runTests']) {
             stage('Run Tests') {
-                sh "pytest test.py"
+//                sh pd.testCommand
                 println("Python test is running")
             }
         }
